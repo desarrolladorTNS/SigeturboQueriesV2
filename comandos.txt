@@ -17,7 +17,8 @@ get rm --cached =  get rm --cached nombrearchivo.extensiuon nos borra el archivo
 git config      =  Hace todas las configuraciones que tiene git 
 git config --global user.name = ponemos el nombre del usuario
 git config --global user.email = ponemos el correo del usuario
-
+git log nombrearchivo.extension = Veo el historial del archivo
+git show        = muestra los cambios que han habido sobre un archivo
 
 Las ramas rompen en diferetes lineas de tiempo el código y por último las une al final
 Los merge son los que unen los cambios de una rama con la versión actual

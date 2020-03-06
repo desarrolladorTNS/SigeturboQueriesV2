@@ -1,0 +1,36 @@
+SELECT
+        users.iduser AS 'User',
+        groups.name AS 'Groups',
+        CONCAT_WS(CONVERT(' ' USING latin1),users.lastname,users.firstname) AS 'Student',
+        users.birth,(YEAR(CURRENT_DATE) - YEAR(users.birth))-(RIGHT(CURRENT_DATE,5) < RIGHT(users.birth,5)) AS 'Age',
+        users.phone AS 'Phone',
+        users.address AS 'Address',
+        religions.name AS Religion,
+        CASE WHEN identificationtypes.name IS NULL THEN 'No Existe Registro' ELSE identificationtypes.name END AS Identificationtype,
+        CASE WHEN identifications.identification IS NULL THEN 'No Existe Registro' ELSE identifications.identification END AS Identification,
+        CASE WHEN identifications.expedition IS NULL THEN 'No Existe REgistro' ELSE identifications.expedition END AS Expedition,
+        CASE WHEN bloodtypes.name IS NULL THEN 'No Existe Registro' ELSE bloodtypes.name END AS 'Blood type',
+        CASE WHEN medicalinsurances.name IS NULL THEN 'No Existe Registro' ELSE medicalinsurances.name END AS 'Medical Insurance',
+        CASE WHEN prepaidmedicals.name IS NULL THEN 'No Existe Registro' ELSE prepaidmedicals.name END AS 'Prepaid Medical',
+        healthinformations.policy_number AS 'Policy Number',
+        IF(origeninformations.iduser  = '' OR origeninformations.iduser IS NULL, 'No Existe Registro', countries.name) AS Country,
+        IF(origeninformations.iduser  = '' OR origeninformations.iduser IS NULL, 'No Existe Registro', languages.name) AS Language,
+        statusschooltypes.name AS 'Status'
+FROM users
+   INNER JOIN enrollments ON enrollments.iduser = users.iduser
+   INNER JOIN groups ON groups.idgroup = enrollments.idgroup
+   INNER JOIN statusschooltypes On statusschooltypes.idstatusschooltype=enrollments.idstatusschooltype
+   LEFT JOIN origeninformations ON origeninformations.iduser = users.iduser
+   INNER JOIN religions ON religions.idreligion = users.idreligion
+   LEFT JOIN languages ON origeninformations.idlanguage = languages.idlanguage
+   LEFT JOIN countries ON countries.idcountry = origeninformations.idcountry
+   LEFT JOIN identifications ON identifications.iduser = users.iduser
+   LEFT JOIN identificationtypes ON identifications.ididentificationtype = identificationtypes.ididentificationtype
+   LEFT JOIN healthinformations ON users.iduser = healthinformations.iduser
+   LEFT JOIN bloodtypes ON healthinformations.idbloodtype = bloodtypes.idbloodtype
+   LEFT JOIN medicalinsurances ON healthinformations.idmedicalinsurance = medicalinsurances.idmedicalinsurance
+   LEFT JOIN prepaidmedicals ON healthinformations.idprepaidmedical = prepaidmedicals.idprepaidmedical
+WHERE
+     enrollments.idyear = 2019 AND
+     enrollments.idstatusschooltype IN (1,6,11,13,16)
+ORDER BY groups.idgroup,Students;

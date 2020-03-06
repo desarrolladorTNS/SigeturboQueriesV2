@@ -15,6 +15,7 @@ SELECT
         healthinformations.policy_number AS 'Policy Number',
         IF(origeninformations.iduser  = '' OR origeninformations.iduser IS NULL, 'No Existe Registro', countries.name) AS Country,
         IF(origeninformations.iduser  = '' OR origeninformations.iduser IS NULL, 'No Existe Registro', languages.name) AS Language,
+        enrollments.register,
         statusschooltypes.name AS 'Status'
 FROM users
    INNER JOIN enrollments ON enrollments.iduser = users.iduser

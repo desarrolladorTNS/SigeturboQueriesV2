@@ -1,0 +1,26 @@
+mkdir   =   crea carpetas en windows es mkdir nombrecarpeta
+touch   =   Crea archivos en windows es touch nombrearchivo.extension
+rm      =   borrar archivo en windows es rm nomnombrearchivo.extension "mucho cuidado porque se puede borrar el disko duro"
+rm-help =   Muetsra todas las opciones de Borrado   
+cat     =   Muestra el contenido de un archivo
+history =   Muestra el historial de comandos por si me olovide de alguno en windows
+!72     =   El signo de admiración con el mnumero de comandos me muestra el comando que use en el historial si depronto me equivoque
+
+
+Git
+git init        =  Crea el Este comando se encargará de dos cosas: primero, crear una carpeta .git, donde se guardará toda la base de datos con cambios atómicos de nuestro proyecto; y segundo, crear un área que conocemos como Staging, que guardará temporalmente nuestros archivos (cuando ejecutemos un comando especial para eso) y nos permitirá, más adelante, guardar estos cambios en el repositorio (también con un comando especial)
+git add         =  crea en memoria ram lo que necesita y hay esta guardado en el Staging esta sin arrastrar o traquear, son cambios temparales antes de mandar al repositorio
+git add .       =  monta todo al repositorio
+git commit -m   =  lo manda al repositorio y el repositorio es al que llega cuando se hace un commit, es cuando sale del Staging al repositorio, cada vez que hago un commit hago una nueva versión de cambio de archivo hacia el repositorio
+git checkout    =  Trae los cambios a mi carpeta o los que necesite
+get rm --cached =  get rm --cached nombrearchivo.extensiuon nos borra el archivo de memoriao del stagin pues todavia no lo hemnois enviado al repositorio es como quitar el git add de el mismo archivo que se monto a la memoria
+git config      =  Hace todas las configuraciones que tiene git 
+git config --global user.name = ponemos el nombre del usuario
+git config --global user.email = ponemos el correo del usuario
+
+
+Las ramas rompen en diferetes lineas de tiempo el código y por último las une al final
+Los merge son los que unen los cambios de una rama con la versión actual
+para crear un repositorio hay que pararse en la carpeta principal de los archivos y se da git init
+los cambios atomicos son las versiones que se guardan
+untracked son archivos que no estamos persiguiendo o que no estamos revisando

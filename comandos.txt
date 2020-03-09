@@ -1,0 +1,72 @@
+mkdir   =   crea carpetas en windows es mkdir nombrecarpeta
+touch   =   Crea archivos en windows es touch nombrearchivo.extension
+rm      =   borrar archivo en windows es rm nomnombrearchivo.extension "mucho cuidado porque se puede borrar el disko duro"
+rm-help =   Muetsra todas las opciones de Borrado   
+cat     =   Muestra el contenido de un archivo
+history =   Muestra el historial de comandos por si me olovide de alguno en windows
+!72     =   El signo de admiración con el mnumero de comandos me muestra el comando que use en el historial si depronto me equivoque
+
+
+Git
+git init        =  Crea el Este comando se encargará de dos cosas: primero, crear una carpeta .git, donde se guardará toda la base de datos con cambios atómicos de nuestro proyecto; y segundo, crear un área que conocemos como Staging, que guardará temporalmente nuestros archivos (cuando ejecutemos un comando especial para eso) y nos permitirá, más adelante, guardar estos cambios en el repositorio (también con un comando especial)
+git add         =  crea en memoria ram lo que necesita y hay esta guardado en el Staging esta sin arrastrar o traquear, son cambios temparales antes de mandar al repositorio
+git add .       =  monta todo al repositorio
+git commit -m   =  lo manda al repositorio y el repositorio es al que llega cuando se hace un commit, es cuando sale del Staging al repositorio, cada vez que hago un commit hago una nueva versión de cambio de archivo hacia el repositorio
+git checkout    =  Trae los cambios a mi carpeta o los que necesite
+git checkout nombrecommitolog nombrearchivo.extension   =  Trae los cambios del archivo del comit o log especifico
+git checkout master nombrearchivo.extension   = Trae los cambios del archivo como esta en el master esto es normalmente cuando vuelvo un archivo a una version anterior pero no le he dado ni git add ni commit
+get rm --cached =  get rm --cached nombrearchivo.extensiuon nos borra el archivo de memoriao del stagin pues todavia no lo hemnois enviado al repositorio es como quitar el git add de el mismo archivo que se monto a la memoria
+git config      =  Hace todas las configuraciones que tiene git 
+git config --global user.name = ponemos el nombre del usuario
+git config --global user.email = ponemos el correo del usuario
+git log nombrearchivo.extension = Veo el historial del archivo mientras git log mostrara el generico o todo
+git log nombrearchivo.extension --stat= con el comando --stat veo el detalle de todos los commit o los que especifique
+git show        = muestra los cambios que han habido sobre un archivo 
+git reset nombrecommitOlog --soft = nos vuelve a un commit o log especifico pero lo que hagamos recientemente sige en el Staging no se pierde lo que guardamos en memoria y sige estando nuestros cambios para darle commit osea si se ha dado get add sigue estando disponible para el próximo commit
+git reset nombrecommitOlog --hard= nos vuelve a un commit o log especifico pero no nos guarda nada en el Staging y todo vuelve al estado anterior, vuelve al pasado de una manera agresiva
+git diff nombrecommitOlog1 y nombrecommitOloq2  = muestra la diferencia de los archivos logs o comits que es lo que ha cambiado entre ellos
+git clone url_del_servidor_remoto: Nos permite descargar los archivos de la última versión de la rama principal y todo el historial de cambios en la carpeta .git.
+git push: Luego de hacer git add y git commit debemos ejecutar este comando para mandar los cambios al servidor remoto.
+git fetch: Lo usamos para traer actualizaciones del servidor remoto y guardarlas en nuestro repositorio local (en caso de que hayan, por supuesto).
+git merge: También usamos el comando git fetch con servidores remotos. Lo necesitamos para combinar los últimos cambios del servidor remoto y nuestro directorio de trabajo.
+git pull: Básicamente, git fetch y git merge al mismo tiempo.
+ESC + Shif + zz = este comando lo saca a uno de la lineas de comandos cuando le esta poniendo el nombre a un commit , no se si a otros. Fuerza el envio del commit porque guarda el archivo
+ESC + i = este comando lo pone a uno a insertar texto del guardado del commit 
+:       = cuando aparezca una lineas de codigo o detalles de un archivo y aparezca : se sale hundiendo la letra q
+  
+Las ramas rompen en diferetes lineas de tiempo el código y por último las une al final
+Los merge son los que unen los cambios de una rama con la versión actual
+para crear un repositorio hay que pararse en la carpeta principal de los archivos y se da git init
+los cambios atomicos son las versiones que se guardan
+untracked son archivos que no estamos persiguiendo o que no estamos revisando
+para copiar una linea de comando de git bash solo se necesita dar doble clic y despues clic derecho y copiar
+El repositorio tiene todos los cambios
+
+Git reset vs. Git rm
+
+Git reset y git rm son comandos con utilidades muy diferentes, pero aún así se confunden muy fácilmente.
+
+git rm
+Este comando nos ayuda a eliminar archivos de Git sin eliminar su historial del sistema de versiones. Esto quiere decir que si necesitamos recuperar el archivo solo debemos “viajar en el tiempo” y recuperar el último commit antes de borrar el archivo en cuestión.
+Recuerda que git rm no puede usarse así nomás. Debemos usar uno de los flags para indicarle a Git cómo eliminar los archivos que ya no necesitamos en la última versión del proyecto:
+git rm --cached: Elimina los archivos del área de Staging y del próximo commit pero los mantiene en nuestro disco duro.
+git rm --force: Elimina los archivos de Git y del disco duro. Git siempre guarda todo, por lo que podemos acceder al registro de la existencia de los archivos, de modo que podremos recuperarlos si es necesario (pero debemos usar comandos más avanzados).
+
+git reset
+Este comando nos ayuda a volver en el tiempo. Pero no como git checkout que nos deja ir, mirar, pasear y volver. Con git reset volvemos al pasado sin la posibilidad de volver al futuro. Borramos la historia y la debemos sobreescribir. No hay vuelta atrás.
+Este comando es muy peligroso y debemos usarlo solo en caso de emergencia. Recuerda que debemos usar alguna de estas dos opciones:
+Hay dos formas de usar git reset: con el argumento --hard, borrando toda la información que tengamos en el área de staging (y perdiendo todo para siempre). O, un poco más seguro, con el argumento --soft, que mantiene allí los archivos del área de staging para que podamos aplicar nuestros últimos cambios pero desde un commit anterior.
+git reset --soft: Borramos todo el historial y los registros de Git pero guardamos los cambios que tengamos en Staging, así podemos aplicar las últimas actualizaciones a un nuevo commit.
+git reset --hard: Borra todo. Todo todito, absolutamente todo. Toda la información de los commits y del área de staging se borra del historial.
+¡Pero todavía falta algo!
+
+git reset HEAD: Este es el comando para sacar archivos del área de Staging. No para borrarlos ni nada de eso, solo para que los últimos cambios de estos archivos no se envíen al último commit, a menos que cambiemos de opinión y los incluyamos de nuevo en staging con git add, por supuesto.
+¿Por que esto es importante?
+Imagina el siguiente caso:
+Hacemos cambios en los archivos de un proyecto para una nueva actualización. Todos los archivos con cambios se mueven al área de staging con el comando git add. Pero te das cuenta de que uno de esos archivos no está listo todavía. Actualizaste el archivo pero ese cambio no debe ir en el próximo commit por ahora.
+¿Qué podemos hacer?
+Bueno, todos los cambios están en el área de Staging, incluido el archivo con los cambios que no están listos. Esto significa que debemos sacar ese archivo de Staging para poder hacer commit de todos los demás.
+¡Al usar git rm lo que haremos será eliminar este archivo completamente de git! Todavía tendremos el historial de cambios de este archivo, con la eliminación del archivo como su última actualización. Recuerda que en este caso no buscábamos eliminar un archivo, solo dejarlo como estaba y actualizarlo después, no en este commit.
+
+En cambio, si usamos git reset HEAD, lo único que haremos será mover estos cambios de Staging a Unstaged. Seguiremos teniendo los últimos cambios del archivo, el repositorio mantendrá el archivo (no con sus últimos cambios pero sí con los últimos en los que hicimos commit) y no habremos perdido nada.
+Conclusión: Lo mejor que puedes hacer para salvar tu puesto y evitar un incendio en tu trabajo es conocer muy bien la diferencia y los riesgos de todos los comandos de Git.

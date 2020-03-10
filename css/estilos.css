@@ -3,6 +3,12 @@ body{
     text-align: center;
 }
 
+header{
+    background-color: #ece3e3;
+    color: #7777a7;
+    min-height: 10%;
+}
+
 #container{
     width:100%;
     display: flex;

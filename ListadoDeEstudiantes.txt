@@ -15,7 +15,8 @@ SELECT
         healthinformations.policy_number AS 'Policy Number',
         IF(origeninformations.iduser  = '' OR origeninformations.iduser IS NULL, 'No Existe Registro', countries.name) AS Country,
         IF(origeninformations.iduser  = '' OR origeninformations.iduser IS NULL, 'No Existe Registro', languages.name) AS Language,
-        statusschooltypes.name AS 'Status'
+        statusschooltypes.name AS 'Status',
+        enrollments.register
 FROM users
    INNER JOIN enrollments ON enrollments.iduser = users.iduser
    INNER JOIN groups ON groups.idgroup = enrollments.idgroup
@@ -32,5 +33,5 @@ FROM users
    LEFT JOIN prepaidmedicals ON healthinformations.idprepaidmedical = prepaidmedicals.idprepaidmedical
 WHERE
      enrollments.idyear = 2019 AND
-     enrollments.idstatusschooltype IN (1,6,11,13,16) # And users.iduser IN (99999999)
+     enrollments.idstatusschooltype IN (1,6,11,13,16) #AND enrollments.iduser IN (9999999)
 ORDER BY groups.idgroup,Students;

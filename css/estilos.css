@@ -9,6 +9,10 @@ header{
     min-height: 10%;
 }
 
+.logo{
+    width: 2%;
+}
+
 #container{
     width:100%;
     display: flex;

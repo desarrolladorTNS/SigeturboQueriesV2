@@ -33,9 +33,5 @@ FROM users
    LEFT JOIN prepaidmedicals ON healthinformations.idprepaidmedical = prepaidmedicals.idprepaidmedical
 WHERE
      enrollments.idyear = 2019 AND
-<<<<<<< HEAD
      enrollments.idstatusschooltype IN (1,6,11,13,16) #AND enrollments.iduser IN (9999999)
-=======
-     enrollments.idstatusschooltype IN (1,6,11,13,16) # And users.iduser IN (99999999)
->>>>>>> header
 ORDER BY groups.idgroup,Students;

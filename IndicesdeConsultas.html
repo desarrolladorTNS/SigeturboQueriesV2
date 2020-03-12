@@ -1,0 +1,82 @@
+<html> 
+<head> 
+<title>Indice de Consultas de SIGETURBO</title>
+<link rel="stylesheet" href="css/estilos.css">
+<script type="text/javascript" src="js/consultas/enrollments/listadoestudiantes.js"></script>
+<script type="text/javascript" src="js/consultas/accounting/Lists.js"></script>
+<script type="text/javascript" src="js/consultas/boostrap.js"></script>
+</head> 
+<body> 
+	<header>
+		Consultas de SIGETURBO V2 Para optimización de paquetes
+	</header>
+	<main>
+		<div id="container">
+			<div id="indice">
+				Consultas de SIGETURBO V2
+				<div id="cabecera">Consultas de SIGETURBO master</div>
+				<div>Se modificara para una m,ejor versiíon</div>
+				<ul>
+					<li>Enrollments
+						<ul>
+							<li id="1" onclick="ejecutar(this.id)">Mostrar Estudiantes</li>
+						</ul>
+					</li>
+					<li>Account
+						<ul>
+							<li id="3" onclick="ejecutar(this.id)">Listado Para Martha</li>
+							<li id="9" onclick="ejecutar(this.id)">Listado de estudiantes sin responsables económicos</li>
+							<li id="30" onclick="ejecutar(this.id)">Listado de estudiantes pendientes por mes</li>
+						</ul>
+					</li>
+					<li>Formation
+						<ul>
+							<li>Achievements & Indicators
+								<ul>
+									<li id="4" onclick="ejecutar(this.id)">Listado de las Asignaturas Sin Logros</li>
+								</ul>
+							</li>
+							<li>Monitoringtypes
+								<ul>
+									<li id="6" onclick="ejecutar(this.id)">Listado de Cantidad De Tipos De Seguimientos No Calificados Por Estudiantes</li>
+								</ul>
+							</li>
+							<li>Monitorings
+								<ul>
+									<li id="7" onclick="ejecutar(this.id)">Listado de las Calificaciones Definitivas por Columnas</li>							
+								</ul>
+							</li>
+							<li>Empleados
+								<ul>
+									<li id="13" onclick="ejecutar(this.id)">Listado de Empleados</li>
+								</ul>
+							</li>
+							<li>Attendances
+								<ul>
+									<li id="14" onclick="ejecutar(this.id)">Listado de Faltas de Asistencia por Día</li>
+								</ul>
+							</li>
+							<li>Partial Ratings
+								<ul>
+									<li id="14" onclick="ejecutar(this.id)">Listado de Faltas de Asistencia por Día</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div id="descripciondeconsultas" style="width:58%;background-color: azure;text-align: center;font-size: 2em;">
+				<div id="titlequery" style="width:100%;"></div>
+				<div style="width:100%;display: flex;text-align: -webkit-left;font-size: 12px;margin-top: 1%;">
+					<div id="paramsquery" style="width:40%;text-align: -webkit-left;font-size: 12px;"></div>
+					<div id="querydescription" style="width:60%;text-align: -webkit-left;font-size: 12px;"></div>
+				</div>
+				<div id="descriptionquery" style="width:100%;text-align: -webkit-left;font-size: 15px;margin-top: 3%;"></div>
+			</div>
+		</div>
+	</main>
+	<footer>
+		
+	</footer>
+</body> 
+</html>
